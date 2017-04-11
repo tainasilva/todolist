@@ -45,10 +45,10 @@ Route::group(['middleware' => ['web']], function () {
         return redirect('/');
     });
 
-    Route::post('/todo/check/', function ($id) {
+    Route::put('/todo/{id}', function ($id) {
 
-        Todo::findOrFail($id);
-        $todo->completed = Input::get('completed') ? Input::get('completed') : 0;
+        $todo = Todo::findOrFail($id);
+        $todo->status = !$todo->status;
         $todo->save();
 
         return redirect('/');

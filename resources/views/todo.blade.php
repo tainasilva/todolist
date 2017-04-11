@@ -21,15 +21,26 @@
                 @foreach ($todo as $todos)
                 <li class="ui-state-default" >
                     <div class="checkbox " >
-                        <form action="/todo/{{ $todos->id }}" method="POST">
+                        <form action="/todo/{{ $todos->id }}" method="POST" style="float: left">
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
                             @if ($todos->status)
-                            <input type="checkbox" name="id" onclick="todo-update-form" value="{{ $todos->id }}"/>{{ $todos->name }}
+                            <label data-todo-id='{{ $todos->id }}'>
+                                <input type="checkbox" onchange="this.form.submit()" checked />
+                                <span style="text-decoration: line-through;">
+                                    {{ $todos->name }}
+                                </span>
+                            </label>
                             @else
                             <label data-todo-id='{{ $todos->id }}'>
-                                <input type="checkbox" />
-                                {{ $todos->name }}
+                                <input type="checkbox" onchange="this.form.submit()" />
+                                <span>
+                                    {{ $todos->name }}
+                                </span>
                             </label>
                             @endif
+                        </form>
+                        <form action="/todo/{{ $todos->id }}" method="POST">
                             {{ csrf_field() }}
                             {{ method_field('DELETE') }}
 
@@ -37,7 +48,6 @@
                                 <span class="glyphicon glyphicon-remove"></span>
 
                             </button>
-
                         </form>
 
                     </div>
@@ -50,4 +60,3 @@
     </div>
 </div>    
 @endsection
-

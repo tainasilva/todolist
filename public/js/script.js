@@ -1,5 +1,3 @@
-
-
 $('todo-update-form ').click(function () {
     var form = $(this).parent();
     var checked = $(this).prop('checked');
@@ -26,25 +24,24 @@ $('todo-update-form ').click(function () {
 
 $(document).ready(function () {
 
-    $('input').on('change', function () {
-        var todos_id = $(this).parent().data('todo-id');
-        var li = $(this).parent().parent();
-//        var li = $(this).closest(".todo");
-        //ajax post request
-        $.post(
-                "/todo/check",
-                {todos_id: todos_id},
-                function (data) {
-                    //callback do ajax request
-                    if (data.status === true) {
-                           
-                       li.html("<span class='label label-success'>" + data.name + "</span>");
-                    }
-
-
-                }
-        );
-
-    });
+//    $('input').on('change', function () {
+//        var todos_id = $(this).parent().data('todo-id');
+//        var li = $(this).parent().parent();
+////        var li = $(this).closest(".todo");
+//        //ajax post request
+//        $.post(
+//                "/todo/check",
+//                {todos_id: todos_id},
+//                function (data) {
+//                    //callback do ajax request
+//                    if (data.status === true) {
+//                           
+//                       li.html("<span class='label label-success'>" + data.name + "</span>");
+//                    }
+//
+//
+//                }
+//        );
+//
+//    });
 });
-

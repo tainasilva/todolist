@@ -30,7 +30,7 @@ li.ui-state-default:last-child{
     padding: 10px 20px;
 }
 .done-items li{
-    padding:10px 0;
+    padding:20px 0;
     border-bottom:1px solid #ddd;
     text-decoration:line-through;
 }
@@ -41,6 +41,9 @@ li.ui-state-default:last-child{
     margin-top:10px;
 }
 
+.checkbox, .radio{
+    margin-top: 0px !important;
+}
 
 
 
