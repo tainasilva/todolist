@@ -20,3 +20,6 @@
 
     - Inicie o servidor do php:
     php artisan serve
+    
+    - Acesse no seu navegador:
+    http://localhost:8000/
